@@ -1,25 +1,28 @@
-const int tiltSensorPin = 2;
-const int greenLedPin = 3;
-const int redLedPin = 4;
-const int buzzerPin = 5;
+const int tilt = 2;
+const int Led1 = 3;
+const int Led2 = 4;
+const int buzzer = 5;
 
 void setup() {
-  pinMode(tiltSensorPin, INPUT);
-  pinMode(greenLedPin, OUTPUT);
-  pinMode(redLedPin, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
+  pinMode(tilt, INPUT);
+  pinMode(Led, OUTPUT);
+  pinMode(Led, OUTPUT);
+  pinMode(buzzer, OUTPUT);
 }
 
 void loop() {
-  int tiltState = digitalRead(tiltSensorPin);
+  int tiltState = digitalRead(tilt);
 
-  if (tiltState == HIGH) {
-    digitalWrite(greenLedPin, LOW);
-    digitalWrite(redLedPin, HIGH);
-    tone(buzzerPin, 1000);  // Adjust frequency as needed
-  } else {
-    digitalWrite(greenLedPin, HIGH);
-    digitalWrite(redLedPin, LOW);
-    noTone(buzzerPin);
+  if (tiltState == HIGH)
+    {
+    digitalWrite(Led1, HIGH);
+    digitalWrite(Led2, LOW);
+    tone(buzzer, 1000); 
+    } 
+  else 
+   {
+    digitalWrite(Led1, LOW);
+    digitalWrite(led2, HIGH);
+    noTone(buzzer);
   }
 }
