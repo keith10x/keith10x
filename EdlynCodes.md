@@ -1,16 +1,25 @@
-### Hi there 👋
+const int tiltSensorPin = 2;
+const int greenLedPin = 3;
+const int redLedPin = 4;
+const int buzzerPin = 5;
 
-<!--
-**keith10x/keith10x** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+void setup() {
+  pinMode(tiltSensorPin, INPUT);
+  pinMode(greenLedPin, OUTPUT);
+  pinMode(redLedPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
 
-Here are some ideas to get you started:
+void loop() {
+  int tiltState = digitalRead(tiltSensorPin);
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+  if (tiltState == HIGH) {
+    digitalWrite(greenLedPin, LOW);
+    digitalWrite(redLedPin, HIGH);
+    tone(buzzerPin, 1000);  // Adjust frequency as needed
+  } else {
+    digitalWrite(greenLedPin, HIGH);
+    digitalWrite(redLedPin, LOW);
+    noTone(buzzerPin);
+  }
+}
