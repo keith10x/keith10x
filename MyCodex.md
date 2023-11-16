@@ -8,11 +8,15 @@ void setup() {
   pinMode(Led, OUTPUT);
   pinMode(Led, OUTPUT);
   pinMode(buzzer, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   int tiltState = digitalRead(tilt);
 
+     Serial.println(tiltState);
+     delay(500);
+     
   if (tiltState == HIGH)
     {
     digitalWrite(Led1, HIGH);
